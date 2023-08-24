@@ -1,0 +1,55 @@
+
+name: Bug Report
+description: Create a report to help us improve
+title: "[Bug] "
+labels: ["bug", "triage"]
+body:
+- type: checkboxes
+  attributes:
+    label: 이미 이슈가 만들어져있지는 않나요?
+    description: 발생한 버그에 대한 이슈가 이미 존재하는지 검색해 보세요.
+    options:
+    - label: 이미 만들어진 이슈가 없는 것을 확인했습니다.
+      required: true
+- type: textarea
+  attributes:
+    label: Current Behavior
+    description: 현재 상황에 대한 간결한 설명입니다.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Expected Behavior 
+    description: 예상되는 상황에 대한 간결한 설명입니다.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: 재현 단계
+    description: 동작을 재현하는 단계입니다.
+    placeholder: |
+      1. 어떠한 환경에서 ...
+      2. 이러한 설정을 가지고 ...
+      3. '...'를 실행
+      4. ... 의 에러 나타남
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: 환경
+    placeholder: |
+        - OS: Ubuntu 20.04
+        - Node: 13.14.0
+        - npm: 7.6.3
+    render: markdown
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: 
+    description: |
+      Links? References? 발생한 문제에 대한 자세한 내용을 알려주실 수 있는 모든 정보를 기재해주세요!
+
+      Tip: 파일을 끌어다 놓으면 이미지나 로그 파일을 첨부할 수 있습니다.
+  validations:
+    required: false

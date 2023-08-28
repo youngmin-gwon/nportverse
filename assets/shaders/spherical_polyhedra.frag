@@ -27,7 +27,6 @@ precision mediump float;
 #include <flutter/runtime_effect.glsl>
 
 uniform vec2 iResolution;
-uniform vec2 iMouse;
 uniform float iTime;
 out vec4 fragColor;
 
@@ -207,7 +206,7 @@ void main() {
     vec2 p = FlutterFragCoord().xy / iResolution.xy - 0.5;
     vec2 bp = p + 0.5;
     p.x *= iResolution.x / iResolution.y;
-    vec2 um = iMouse.xy / iResolution.xy - .5;
+    vec2 um = vec2(1.) / iResolution.xy - .5;
     um.x *= iResolution.x / iResolution.y;
 
     //camera

@@ -26,3 +26,4 @@ flutter:
     - assets/shaders/atmospheric_scattering.frag
     - assets/shaders/bubble_ring.frag
     - assets/shaders/spherical_polyhedra.frag
+    - assets/shaders/neon_lines.frag

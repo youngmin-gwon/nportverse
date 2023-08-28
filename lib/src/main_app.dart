@@ -1,4 +1,5 @@
 import 'package:crypto_concept/src/core/presentation/router/main_app_router_delegate.dart';
+import 'package:crypto_concept/src/core/presentation/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class MainApp extends StatefulWidget {
@@ -16,6 +17,9 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp.router(
       routerDelegate: _delegate,
       backButtonDispatcher: RootBackButtonDispatcher(),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: ThemeMode.dark,
     );
   }
 }

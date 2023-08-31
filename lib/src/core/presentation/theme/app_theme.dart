@@ -1,14 +1,18 @@
+import 'package:crypto_concept/src/core/presentation/generated/fonts.gen.dart';
 import 'package:flutter/material.dart';
 
+/// light/dark theme 및 폰트를 정의한 class
 class AppTheme {
   const AppTheme();
 
-  static const double kFontBodySize = 25.0;
+  static const double kFontBodySize = 20.0;
   static const double kGoldenRatio = 1.618;
 
   /// !Note: math library 안의 pow 를 사용하려 했으나, 그럴시
+  ///
   /// 1. build time constant 가 아니게 되고
   /// 2. 수가 여러번 곱해지지 않아 지금 가독성도 괜찮기
+  ///
   /// 때문에 manual로 계산함
   static const double kFontDisplaySize =
       kFontBodySize * kGoldenRatio * kGoldenRatio * kGoldenRatio;
@@ -89,6 +93,7 @@ class AppTheme {
     final rawThemeData = ThemeData(
       useMaterial3: true,
       colorScheme: _light,
+      fontFamily: FontFamily.gMarketSans,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       brightness: Brightness.light,
     );
@@ -100,7 +105,7 @@ class AppTheme {
     final rawThemeData = ThemeData(
       useMaterial3: true,
       colorScheme: _dark,
-      // fontFamily: FontFamily.gMarketSans,
+      fontFamily: FontFamily.gMarketSans,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       brightness: Brightness.dark,
     );
@@ -109,30 +114,25 @@ class AppTheme {
   }
 
   static ThemeData _newThemeWithTextStyle(ThemeData original) {
-    /// 대부분의 경우 `DisplayMedium', `HeadlineMedium`, `BodyMedium`
-    /// 총 3개로만  hierarchy 를 표현할 것임
-
-    final displayTextTheme = ThemeData(
-      // fontFamily: FontFamily.pyeongchangPeace,
-      brightness: original.brightness,
-    ).textTheme;
+    // 대부분의 경우 `DisplayMedium', `HeadlineMedium`, `BodyMedium`
+    // 총 3개로만  hierarchy 를 표현할 것임
     return original.copyWith(
       textTheme: original.textTheme.copyWith(
-        displayLarge: displayTextTheme.displayLarge?.copyWith(
+        displayLarge: original.textTheme.displayLarge?.copyWith(
           fontWeight: FontWeight.w800,
           letterSpacing: -1.1,
           height: 1.15,
           fontSize: 1.1 * kFontDisplaySize,
           color: original.textTheme.displayLarge?.color,
         ),
-        displayMedium: displayTextTheme.displayMedium?.copyWith(
+        displayMedium: original.textTheme.displayMedium?.copyWith(
           fontWeight: FontWeight.w800,
           letterSpacing: -1.1,
           height: 1.18,
           fontSize: kFontDisplaySize,
           color: original.textTheme.displayMedium?.color,
         ),
-        displaySmall: displayTextTheme.displaySmall?.copyWith(
+        displaySmall: original.textTheme.displaySmall?.copyWith(
           fontWeight: FontWeight.w800,
           letterSpacing: -1.0,
           height: 1.2,
